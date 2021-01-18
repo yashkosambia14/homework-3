@@ -1,6 +1,6 @@
 import pytest
 
-from mypkg.my_answers import add_binary
+from mypkg.my_answers import numbers_and_strings
 
 def numbers_and_strings():
     """
