@@ -1,6 +1,6 @@
 import pytest
 
-from mypkg.my_answers import dictionaries
+from mypkg.my_answer import dictionaries
 def dictionaries():
     """
     This is to review basic operations with dictionaries.
