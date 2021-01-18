@@ -1,6 +1,6 @@
 import pytest
 
-from mypkg.fibonacci import fibonacci
+from mypkg.fibonacci import lists
 
 def lists():
     """
