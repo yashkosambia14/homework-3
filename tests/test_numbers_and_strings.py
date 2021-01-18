@@ -1,6 +1,6 @@
 import pytest
 
-from mypkg.my_answers import numbers_and_strings
+from mypkg.my_answer import numbers_and_strings
 
 def numbers_and_strings():
     """
