@@ -1,36 +1,31 @@
 import pytest
 
-from mypkg.my_answer import lists
+from mypkg.my_answers import lists
 
-def lists():
-    """
-    This is to review basic operations with lists.
-    """
-    n = "Stevens is awesome"
+p, r, c, d, o = lists()
 
-    # Split variable n on a delimiter space into a list of substrings
-    p = n.split(" ")
+def test_split():
+    assert(p[0] == "Stevens")
+    assert(p[1] == "is")
+    assert(p[2] == "awesome")
 
-    # Get all the items past the first of the third substring
-    r = p[2][1:]
 
-    # Create a 3 x 3 matrix as nested list such that
-    #   first row is [1, 4, 5]
-    #   second row is [6, 10, 11]
-    #   third row is [12, 17, 38]
-    A = [[1, 4, 5],
-         [6, 10, 11],
-         [12, 17, 38]]
+def test_slice():
+    assert(r=="wesome")
 
-    # Collect the items in the last column of matrix A using list comprehension
-    c = [row[-1] for row in A]
 
-    # Collect only the even items of the diagonal of matrix A using list comprehension
-    d = [A[i][i] for i in range(len(A)) if A[i][i] % 2 == 0]
+def test_last_row():
+    assert(c[0] == 5)
+    assert(c[1] == 11)
+    assert(c[2] == 38)
 
-    # We can convert a single character to its underlying integer code (e.g., its ASCII byte value)
-    # by passing it to the built-in ord function. Generate a list of these integers to represent
-    # each character of the string "Stevens" using list comprehension.
-    o = [ord(c) for c in "Stevens"]
 
-    return p, r, c, d, o
+def test_diagonal():
+    assert(d[0]==10)
+    assert(d[1]==38)
+
+
+def test_ord():
+    x = [chr(x) for x in o]
+    rec = "".join(x)
+    assert(rec == "Stevens")
