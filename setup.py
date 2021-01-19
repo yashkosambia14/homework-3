@@ -11,7 +11,7 @@ from setuptools import find_packages
 setup(name='homework1',
       version='1.0',
       description='Python Distribution Utilities',
-      author='Sergul Aydore',
+      author='Hatimalhazmi',
       packages=find_packages('src'),
       package_dir={'': 'src'},
       py_modules=[splitext(basename(path))[0] for path in glob('src/*.py')],
