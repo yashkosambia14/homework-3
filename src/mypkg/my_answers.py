@@ -1,111 +1,126 @@
+ 
 #!/usr/bin/python
 
 """
-Python Core object Types
+Python Statements
 """
 
 
-def numbers_and_strings():
+def add_binary(a, b):
     """
-    This is to review numbers and strings and basic operations.
+    This is to review binary operations
+    ============================================================
+    Given two binary strings, return their sum (also a binary string).
+    Return None if one of the input strings are empty or contains characters different than 1 or 0.
+    Example 1:
+                Input: a = "11", b = "1"
+                Output: result = "100"
+    Example 2:
+                Input: a = "1010", b = "1011"
+                Output: result = "10101"
     """
-    # Write power of 2018
-    x = 2018 ** 2
+    if a == '' or b == '':
+        result = None
+    try:
+        a_int,b_int = int(a, 2), int(b, 2)
+    except ValueError:
+        result = None
+    else:
+        result = str(bin(a_int + b_int))[2:]
 
-    # Assign a string "Stevens" to a variable y
-    y = "Stevens"
-
-    # Repeat variable y 5 times
-    z = y * 5
-
-    # What is the length of z?
-    length = len(z)
-
-    # Concatenate variable y with string " is good"
-    m = y + " is good"
-
-    # Replace "good" with "awesome" in variable m and assign it to a new variable n
-    n = m.replace("good", "awesome")
-
-    return x, y, z, length, m, n
+    return result
 
 
-def lists():
+def plus_one(digits):
     """
-    This is to review basic operations with lists.
+    This is to review loops and if statements
+    ============================================================
+    Given a non-empty array of digits representing a non-negative integer, plus one to the integer.
+    You can do this in-place!
+    The digits are stored such that the most significant digit is at the head of the list, and each
+    element in the array contain a single digit.
+    You may assume the integer does not contain any leading zero, except the number 0 itself.
+    Example 1:
+            Input: digits = [1, 2, 3]
+            Output: digits = [1, 2, 4]
+            Explanation: The array represents the integer 123.
+    Example 2:
+            Input: digits = [1, 0, 9, 9]
+            Output: digits = [1, 1, 0, 0]
     """
-    n = "Stevens is awesome"
+    digits.insert(0,0)
+    m = len(digits) - 1
+    digits[m] += 1
+    while m >= 0:
+        if digits[m] == 10:
+            digits[m] = 0
+            digits[m-1] += 1
+        m -= 1
 
-    # Split variable n on a delimiter space into a list of substrings
-    p = n.split(" ")
+    if digits[0] == 0:
+        digits = digits[1:]
 
-    # Get all the items past the first of the third substring
-    r = p[2][1:]
-
-    # Create a 3 x 3 matrix as nested list such that
-    #   first row is [1, 4, 5]
-    #   second row is [6, 10, 11]
-    #   third row is [12, 17, 38]
-    A = [[1, 4, 5],
-         [6, 10, 11],
-         [12, 17, 38]]
-
-    # Collect the items in the last column of matrix A using list comprehension
-    c = [row[-1] for row in A]
-
-    # Collect only the even items of the diagonal of matrix A using list comprehension
-    d = [A[i][i] for i in range(len(A)) if A[i][i] % 2 == 0]
-
-    # We can convert a single character to its underlying integer code (e.g., its ASCII byte value)
-    # by passing it to the built-in ord function. Generate a list of these integers to represent
-    # each character of the string "Stevens" using list comprehension.
-    o = [ord(c) for c in "Stevens"]
-
-    return p, r, c, d, o
+    return digits
 
 
-def dictionaries():
+def roman_to_integers(roman_string):
     """
-    This is to review basic operations with dictionaries.
+    This is to review loops, if statements and dictionaries
+    ============================================================
+    Roman numerals are represented by seven different symbols: I, V, X, L, C, D and M.
+    Symbol       Value
+    I             1
+    V             5
+    X             10
+    L             50
+    C             100
+    D             500
+    M             1000
+    For example, two is written as II in Roman numeral, just two one's added together.
+    Twelve is written as, XII, which is simply X + II. The number twenty seven is written
+    as XXVII, which is XX + V + II.
+    Roman numerals are usually written largest to smallest from left to right. However,
+    the numeral for four is not IIII. Instead, the number four is written as IV. Because
+    the one is before the five we subtract it making four. The same principle applies to
+    the number nine, which is written as IX. There are six instances where subtraction is used:
+    - I can be placed before V (5) and X (10) to make 4 and 9.
+    - X can be placed before L (50) and C (100) to make 40 and 90.
+    - C can be placed before D (500) and M (1000) to make 400 and 900.
+    Given a roman numeral, convert it to an integer. Input is guaranteed to be within the range from 1 to 3999.
+    Example 1:
+        Input: "III"
+        Output: 3
+    Example 2:
+        Input: "IV"
+        Output: 4
+    Example 3:
+        Input: "IX"
+        Output: 9
+    Example 4:
+        Input: "LVIII"
+        Output: 58
+        Explanation: C = 100, L = 50, XXX = 30 and III = 3.
+    Example 5:
+        Input: "MCMXCIV"
+        Output: 1994
+        Explanation: M = 1000, CM = 900, XC = 90 and IV = 4.
     """
-    # Create a dictionary that maps:
-    #   fruit => "apple"
-    #   quantity => 17
-    #   color => "green"
-    f = {"fruit": "apple", "quantity": 4, "color": "green"}
 
-    # Get the item in dictionary f that the key "fruit" maps to
-    a = f["fruit"]
+    Roman_number = {"I": 1, "V": 5, "X": 10, "L": 50, "C": 100, "D": 500, "M": 1000}
+    integer = 0
 
-    # Increase the quantity of f by 1
-    f["quantity"] += 1
+    for i in range(len(roman_string)):
+        if roman_string[i] in Roman_number.keys():
+            if i > 0 and Roman_number[roman_string[i]] > Roman_number[roman_string[i-1]]:
+                integer -= Roman_number[roman_string[i-1]]
+                integer += Roman_number[roman_string[i]] - Roman_number[roman_string[i-1]]
+            else:
+                integer += Roman_number[roman_string[i]]
+        else:
+            integer = None
+            print(x, " is not a roman number!")
+            break
 
-    # Create a nested dictionary where:
-    #   name => {first_name => "Grace", last_name => "Hopper"} (a dictionary)
-    #   jobs => ["scientist", "engineer"] (a list)
-    #   age => 85
-    amazing_grace = {"name": {"first_name": "Grace", "last_name": "hopper"},
-                     "jobs": ["scientist", "engineer"],
-                     "age": 85}
-
-    # Add "programmer" to the list of jobs Grace has
-    amazing_grace["jobs"].append("programmer")
-
-    # Get the third job Grace has that you recently added
-    p = amazing_grace["jobs"][-1]
-
-    # Get the sorted keys of amazing_grace in alphabetically ascending order
-    k = list(amazing_grace.keys())
-    k.sort()
-
-    return a, f, p, k
-
-
-numbers_and_strings()
-lists()
-dictionaries()
-
-
-
+    return integer
 
 
