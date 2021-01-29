@@ -13,8 +13,8 @@ def add_binary(a, b):
     Given two binary strings, return their sum (also a binary string).
     Return None if one of the input strings are empty or contains characters different than 1 or 0.
     Example 1:
-                Input: a = "11", b = "1"
-                Output: result = "100"
+                Input: a = "10", b = "1"
+                Output: result = "11"
     Example 2:
                 Input: a = "1010", b = "1011"
                 Output: result = "10101"
