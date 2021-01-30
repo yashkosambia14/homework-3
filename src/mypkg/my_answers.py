@@ -18,7 +18,7 @@ def add_binary(a, b):
     Example 2:
                 Input: a = "1010", b = "1011"
                 Output: result = "10101"
-    
+    """
     if a == '' or b == '':
         result = None
     try:
@@ -33,8 +33,9 @@ def add_binary(a, b):
 
 def plus_one(digits):
 
+   
    """
-   """
+   
     This is to review loops and if statements
     ============================================================
     Given a non-empty array of digits representing a non-negative integer, plus one to the integer.
@@ -50,7 +51,7 @@ def plus_one(digits):
             Input: digits = [1, 0, 9, 9]
             Output: digits = [1, 1, 0, 0]
     """
-    """
+    
     digits.insert(0,0)
     m = len(digits) - 1
     digits[m] += 1
@@ -67,7 +68,7 @@ def plus_one(digits):
 
 
 def roman_to_integers(roman_string):
-    """
+    
     """
     This is to review loops, if statements and dictionaries
     ============================================================
@@ -110,7 +111,7 @@ def roman_to_integers(roman_string):
         Explanation: M = 1000, CM = 900, XC = 90 and IV = 4.
    
    """
-"""
+
     Roman_number = {"I": 1, "V": 5, "X": 10, "L": 50, "C": 100, "D": 500, "M": 1000}
     integer = 0
 
