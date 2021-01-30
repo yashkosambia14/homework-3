@@ -22,7 +22,7 @@ def add_binary(a, b):
     if a == '' or b == '':
         result = None
     try:
-        a_int,b_int = int(a, 2), int(b, 1)
+        a_int,b_int = int(a, 2), int(b, 2)
     except ValueError:
         result = None
     else:
