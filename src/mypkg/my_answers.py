@@ -1,4 +1,3 @@
- 
 #!/usr/bin/python
 
 """
@@ -13,8 +12,8 @@ def add_binary(a, b):
     Given two binary strings, return their sum (also a binary string).
     Return None if one of the input strings are empty or contains characters different than 1 or 0.
     Example 1:
-                Input: a = "10", b = "1"
-                Output: result = "11"
+                Input: a = "11", b = "1"
+                Output: result = "100"
     Example 2:
                 Input: a = "1010", b = "1011"
                 Output: result = "10101"
@@ -32,10 +31,7 @@ def add_binary(a, b):
 
 
 def plus_one(digits):
-
-   
-   """
-   
+    """
     This is to review loops and if statements
     ============================================================
     Given a non-empty array of digits representing a non-negative integer, plus one to the integer.
@@ -51,7 +47,6 @@ def plus_one(digits):
             Input: digits = [1, 0, 9, 9]
             Output: digits = [1, 1, 0, 0]
     """
-    
     digits.insert(0,0)
     m = len(digits) - 1
     digits[m] += 1
@@ -68,7 +63,6 @@ def plus_one(digits):
 
 
 def roman_to_integers(roman_string):
-    
     """
     This is to review loops, if statements and dictionaries
     ============================================================
@@ -109,8 +103,7 @@ def roman_to_integers(roman_string):
         Input: "MCMXCIV"
         Output: 1994
         Explanation: M = 1000, CM = 900, XC = 90 and IV = 4.
-   
-   """
+    """
 
     Roman_number = {"I": 1, "V": 5, "X": 10, "L": 50, "C": 100, "D": 500, "M": 1000}
     integer = 0
@@ -128,5 +121,4 @@ def roman_to_integers(roman_string):
             break
 
     return integer
-
 
