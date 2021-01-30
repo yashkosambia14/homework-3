@@ -1,3 +1,5 @@
+import pytest
+
 from mypkg.my_answers import add_binary
 
 
@@ -22,8 +24,8 @@ def test_second_nonbinary():
     assert(result == None)
 
 def test_example1():
-    result = add_binary('10', '1')
-    assert(result=="11")
+    result = add_binary('11', '1')
+    assert(result=="100")
 
 def test_example2():
     result = add_binary('1010', '1011')
