@@ -18,15 +18,8 @@ def add_binary(a, b):
                 Input: a = "1010", b = "1011"
                 Output: result = "10101"
     """
-    if a == '' or b == '':
-        result = None
-    try:
-        a_int,b_int = int(a, 2), int(b, 2)
-    except ValueError:
-        result = None
-    else:
-        result = str(bin(a_int + b_int))[2:]
-
+    
+    result = ...
     return result
 
 
@@ -47,17 +40,7 @@ def plus_one(digits):
             Input: digits = [1, 0, 9, 9]
             Output: digits = [1, 1, 0, 0]
     """
-    digits.insert(0,0)
-    m = len(digits) - 1
-    digits[m] += 1
-    while m >= 0:
-        if digits[m] == 10:
-            digits[m] = 0
-            digits[m-1] += 1
-        m -= 1
-
-    if digits[0] == 0:
-        digits = digits[1:]
+    ....
 
     return digits
 
@@ -106,19 +89,10 @@ def roman_to_integers(roman_string):
     """
 
     Roman_number = {"I": 1, "V": 5, "X": 10, "L": 50, "C": 100, "D": 500, "M": 1000}
-    integer = 0
+    
+    integer = ...
 
-    for i in range(len(roman_string)):
-        if roman_string[i] in Roman_number.keys():
-            if i > 0 and Roman_number[roman_string[i]] > Roman_number[roman_string[i-1]]:
-                integer -= Roman_number[roman_string[i-1]]
-                integer += Roman_number[roman_string[i]] - Roman_number[roman_string[i-1]]
-            else:
-                integer += Roman_number[roman_string[i]]
-        else:
-            integer = None
-            print(x, " is not a roman number!")
-            break
+   
 
     return integer
 
