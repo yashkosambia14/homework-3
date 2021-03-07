@@ -8,7 +8,7 @@ from glob import glob
 
 from setuptools import find_packages
 
-setup(name='homework2',
+setup(name='homework4',
       version='1.0',
       description='Python Distribution Utilities',
       author='Hatimalhazmi',
