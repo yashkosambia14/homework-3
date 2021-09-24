@@ -18,15 +18,20 @@ def add_binary(a, b):
                 Input: a = "1010", b = "1011"
                 Output: result = "10101"
     """
-    if a== "or b==":
-        result= None
-    try:
-        a_int,b_int= int(a,2), int(b,2)
-    except ValueError 
-        rsult = None
-    else
-        result = str(bin(a_int + b_int))
-    #result = ...
+    if (a == "" and b != ""):
+        return None
+    elif (b == "" and a != ""):
+        return None
+    elif (a == "" and b == ""):
+        return None
+    else:
+        for check in a:
+            if int(check) > 1:
+                return None
+        for check_2 in b:
+            if int(check_2) > 1:
+                return None
+        result = str(bin(int(a, 2) + int(b, 2)))[2:]
     return result
    # result = ...
     #return result
@@ -50,22 +55,34 @@ def plus_one(digits):
             Output: digits = [1, 1, 0, 0]
     """
     ....
-   length = len(digits)
-    digits[length-1] +=1
-    carry = digits[length-1]/10
-    digits[length-1] = digits[length-1] % 10
+    counter = 0
+    x = list(range(len(digits)))
+    y = []
+    for x in reversed(list(range(len(digits)))):
+        y.append(x)
+    length = len(digits)
+    value = 0
+    for i in digits:
 
-    for index in range(length-2,-1,-1):
-        if carry == 1:
-            digits[index] += 1
-            carry = digits[index]/10
-            digits[index] = digits[index] % 10
+        if counter == (len(digits) - 1):
+            if digits[len(digits) - 1] < 9 and value == 0:
+                digits[len(digits) - 1] += 1
+            elif digits[len(digits) - 1] == 9:
+                if (len(digits)) >= 1:
+                    for check in y:
+                        if check == 0:
+                            if digits[0] == 9:
+                                value = 1
+                                digits[0] = 0
+                                digits.insert(0, 1)
 
-    if carry == 1:
-        digits.insert(0, 1)
+                        if digits[check] == 9:
+                            if digits[check - 1] < 9:
+                                digits[check - 1] += 1
+                            digits[check] = 0
 
+        counter += 1
     return digits
-    #return digits
 
 
 def roman_to_integers(roman_string):
@@ -114,20 +131,17 @@ def roman_to_integers(roman_string):
    # Roman_number = {"I": 1, "V": 5, "X": 10, "L": 50, "C": 100, "D": 500, "M": 1000}
     
     Roman_number = {"I": 1, "V": 5, "X": 10, "L": 50, "C": 100, "D": 500, "M": 1000}
-    
-    Roman_subtraction = {'IV':4, 'IX':9, 'XL':40, 'XC':90, 'CD':400, 'CM':900}
-    
-    i = 0
+    int_array = []
+    target = 0
     integer = 0
-    
-    while i < len(roman_string):
-        
-        if  i+1<len(roman_string) and roman_string[i:i+2] in Roman_subtraction:
-            integer+=Roman_subtraction[roman_string[i:i+2]]
-            i+=2
+    length = len(roman_string)
+    for number in roman_string:
+        int_array.append(number)
+    for value in range(length):
+        if value > 0 and Roman_number[int_array[value]] > Roman_number[int_array[value - 1]]:
+            integer += Roman_number[int_array[value]] - 2 * Roman_number[int_array[value - 1]]
+
         else:
-            integer+=Roman_number[roman_string[i]]
-            i+=1
-    
+            integer += Roman_number[int_array[value]]
     return integer
 
