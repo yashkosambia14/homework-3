@@ -18,9 +18,18 @@ def add_binary(a, b):
                 Input: a = "1010", b = "1011"
                 Output: result = "10101"
     """
-    
-    result = ...
+    if a== "or b==":
+        result= None
+    try:
+        a_int,b_int= int(a,2), int(b,2)
+    except ValueError 
+        rsult = None
+    else
+        result = str(bin(a_int + b_int))
+    #result = ...
     return result
+   # result = ...
+    #return result
 
 
 def plus_one(digits):
@@ -41,8 +50,22 @@ def plus_one(digits):
             Output: digits = [1, 1, 0, 0]
     """
     ....
+   length = len(digits)
+    digits[length-1] +=1
+    carry = digits[length-1]/10
+    digits[length-1] = digits[length-1] % 10
+
+    for index in range(length-2,-1,-1):
+        if carry == 1:
+            digits[index] += 1
+            carry = digits[index]/10
+            digits[index] = digits[index] % 10
+
+    if carry == 1:
+        digits.insert(0, 1)
 
     return digits
+    #return digits
 
 
 def roman_to_integers(roman_string):
@@ -88,11 +111,23 @@ def roman_to_integers(roman_string):
         Explanation: M = 1000, CM = 900, XC = 90 and IV = 4.
     """
 
+   # Roman_number = {"I": 1, "V": 5, "X": 10, "L": 50, "C": 100, "D": 500, "M": 1000}
+    
     Roman_number = {"I": 1, "V": 5, "X": 10, "L": 50, "C": 100, "D": 500, "M": 1000}
     
-    integer = ...
-
-   
-
+    Roman_subtraction = {'IV':4, 'IX':9, 'XL':40, 'XC':90, 'CD':400, 'CM':900}
+    
+    i = 0
+    integer = 0
+    
+    while i < len(roman_string):
+        
+        if  i+1<len(roman_string) and roman_string[i:i+2] in Roman_subtraction:
+            integer+=Roman_subtraction[roman_string[i:i+2]]
+            i+=2
+        else:
+            integer+=Roman_number[roman_string[i]]
+            i+=1
+    
     return integer
 
