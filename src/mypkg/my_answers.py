@@ -18,7 +18,7 @@ def add_binary(a, b):
                 Input: a = "1010", b = "1011"
                 Output: result = "10101"
     """
-     if a == '' or b == '':
+    if a == '' or b == '':
         result = None
     try:
         a_int,b_int = int(a, 2), int(b, 2) # transfer binarry number to integer
@@ -26,7 +26,6 @@ def add_binary(a, b):
         result = None
     else:
         result = str(bin(a_int + b_int))[2:] 
-
     return result
     
    # result = ...
@@ -111,7 +110,7 @@ def roman_to_integers(roman_string):
     """
 
    # Roman_number = {"I": 1, "V": 5, "X": 10, "L": 50, "C": 100, "D": 500, "M": 1000}
-   Roman_number = {"I": 1, "V": 5, "X": 10, "L": 50, "C": 100, "D": 500, "M": 1000}
+    Roman_number = {"I": 1, "V": 5, "X": 10, "L": 50, "C": 100, "D": 500, "M": 1000}
     integer = 0
 
     for i in range(len(roman_string)):
@@ -125,6 +124,5 @@ def roman_to_integers(roman_string):
             integer = None
             print(x, " is not a roman number!")
             break
-
     return integer
 
