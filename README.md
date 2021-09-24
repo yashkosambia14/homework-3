@@ -10,6 +10,6 @@
 
 - To build your program, type "python setup.py install".
 
-- In your terminal, cd to homework2 and type "pytest". It should run all the tests for this assignment and you should be able to see the output.
+- In your terminal, cd to homework-3 and type "pytest". It should run all the tests for this assignment and you should be able to see the output.
 
 - If you are a student registered to this class, you can commit your changes and push your code to your private Github repository. Travis-CI will run the tests you ran in your local in the cloud.
