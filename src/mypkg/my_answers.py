@@ -32,7 +32,7 @@ def add_binary(a, b):
     #return result
 
 
-def plus_one(digits):
+#def plus_one(digits):
     """
     This is to review loops and if statements
     ============================================================
@@ -48,8 +48,7 @@ def plus_one(digits):
     Example 2:
             Input: digits = [1, 0, 9, 9]
             Output: digits = [1, 1, 0, 0]
-    """
-    ....
+    
     digits.insert(0,0) #new array
     m = len(digits) - 1 # 
     digits[m] += 1
@@ -68,6 +67,7 @@ def plus_one(digits):
 
 def roman_to_integers(roman_string):
     """
+    '''
     This is to review loops, if statements and dictionaries
     ============================================================
     Roman numerals are represented by seven different symbols: I, V, X, L, C, D and M.
