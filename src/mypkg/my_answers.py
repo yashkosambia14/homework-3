@@ -18,8 +18,17 @@ def add_binary(a, b):
                 Input: a = "1010", b = "1011"
                 Output: result = "10101"
     """
-    result = ...
-    return result
+    if a != "" and b != "":
+        for x in a:
+            if x != '0'and x != '1':
+                return None
+        for x in b:
+            if x != '0'and x != '1':
+                return None
+        result= bin(int(a, 2)+int(b, 2))[2:]
+        return result
+    else:
+        return None
 
 
 def plus_one(digits):
@@ -39,10 +48,15 @@ def plus_one(digits):
             Input: digits = [1, 0, 9, 9]
             Output: digits = [1, 1, 0, 0]
     """
-    .....
+    carry = 1
+    for x in reversed(range(0, len(digits))):
+        number = (digits[x] + carry) % 10
+        carry = 1 if number < digits[x] else 0
+        digits[x] = number
+    if carry == 1:
+        return [1] + digits
 
     return digits
-
 
 
 def roman_to_integers(roman_string):
@@ -90,6 +104,15 @@ def roman_to_integers(roman_string):
     """
     
     Roman_number = {"I": 1, "V": 5, "X": 10, "L": 50, "C": 100, "D": 500, "M": 1000}
+    integer = 0
+    for x in range(0, len(roman_string) - 1):
+        c = roman_string[x]
+        cafter = roman_string[x + 1]
+        if Roman_number[c] < Roman_number[cafter]:
+            integer -= Roman_number[c]
+        else:
+            integer += Roman_number[c]
+    integer += Roman_number[roman_string[-1]]
    
     return integer
 
